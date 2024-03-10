@@ -11,7 +11,7 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                   
                 <form method="POST" action="{{ route('batches.store') }}">
-                @csrf  
+                        @csrf  
                         <div class="grid grid-cols-6 gap-6">
                             <div class="col-span-6 sm:col-span-4">
                             <label for="name" value="Name">Name</label>

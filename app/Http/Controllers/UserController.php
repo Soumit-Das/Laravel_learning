@@ -37,7 +37,7 @@ class UserController extends Controller
     public function show(string $id)
     {
         //
-        return User::find(1);
+        return User::find($id);
     }
 
     /**

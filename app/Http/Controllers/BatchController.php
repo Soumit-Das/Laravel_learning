@@ -10,10 +10,20 @@ class BatchController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
-        $batches = Batch::all();
+
+        $name = $request->input('name');
+
+        if($name == ""){
+            
+            $batches = Batch::withCount('quizzes')->paginate(3);
+        }else{
+
+            $batches = Batch::withCount('quizzes')->where('name','like','%' . $name . '%')->paginate(3);
+        }
+
         return view('batches.index',['batches' => $batches]);
     }
 
